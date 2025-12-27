@@ -15,7 +15,7 @@
   
   The program should display the average marks up to two decimal places and the corresponding grade. 
   
-# Date : 
+# Date : 20/11/2025
 # Aim:
  To build a C program that receives inputs for a student’s marks in three subjects, calculates the average, and determines the grade using nested if-else statements with safe floating-point comparisons.
 # Algorithm:
@@ -56,7 +56,49 @@
 ### Step 11:
   Stop
 # Program:
+~~~
+#include <stdio.h>
+
+int main()
+{
+    float math, science, english, average;
+
+    printf("Enter marks in Math, Science and English:\n");
+    scanf("%f %f %f", &math, &science, &english);
+
+    average = (math + science + english) / 3.0;
+
+    printf("Average Marks = %.2f\n", average);
+
+    if (average >= 90.0)
+    {
+        printf("Grade: A");
+    }
+    else
+    {
+        if (average >= 75.0)
+        {
+            printf("Grade: B");
+        }
+        else
+        {
+            if (average >= 50.0)
+            {
+                printf("Grade: C");
+            }
+            else
+            {
+                printf("Grade: F");
+            }
+        }
+    }
+
+    return 0;
+}
+~~~
 # Output:
+<img width="461" height="232" alt="image" src="https://github.com/user-attachments/assets/9c4aa0c4-514e-41bb-9d60-9847d927d876" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -64,7 +106,7 @@ Thus, the program was implemented and executed successfully, and the required ou
 # IAPR-2- Module 2 - FoC
 # Ex.No:7
   Develop a C program to display the multiplication table of a given number (15) up to 10.
-# Date : 
+# Date : 20/11/2025
 # Aim:
  To develop a C program that prints the multiplication table of the number 15 up to 10 using a for loop.
 # Algorithm:
@@ -88,7 +130,25 @@ Thus, the program was implemented and executed successfully, and the required ou
   Stop
 
 # Program:
+```
+#include <stdio.h>
+
+int main()
+{
+    int number = 15;
+    int i;
+
+    for (i = 1; i <= 10; i++)
+    {
+        printf("%d x %d = %d\n", number, i, number * i);
+    }
+
+    return 0;
+}
+```
 # Output:
+<img width="900" height="417" alt="image" src="https://github.com/user-attachments/assets/37d56637-e921-4b9f-b1b9-c682d570417d" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -96,7 +156,7 @@ Thus, the program was implemented and executed successfully, and the required ou
 # IAPR-2- Module 2 - FoC
 # Ex.No:8
   Develop a C program to check whether a given number is prime or not.
-# Date : 
+# Date : 20/11/2025
 # Aim:
  To develop a C program that determines whether an input number is a prime number using a while loop.
 # Algorithm:
@@ -131,7 +191,43 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 7:   
   Stop
 # Program:
+~~~
+#include <stdio.h>
+
+int main()
+{
+    int n, i = 2, f = 0;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    if (n <= 1)
+    {
+        printf("%d is not a prime number.", n);
+        return 0;
+    }
+
+    while (i <= n - 1)
+    {
+        if (n % i == 0)
+        {
+            f = 1;
+            break;
+        }
+        i++;
+    }
+
+    if (f == 0)
+        printf("%d is a prime number.", n);
+    else
+        printf("%d is not a prime number.", n);
+
+    return 0;
+}
+~~~
 # Output:
+<img width="423" height="166" alt="image" src="https://github.com/user-attachments/assets/4058314b-0fa2-4cd4-85ee-37dede2226fb" />
+
 # Result: 
 Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -147,7 +243,7 @@ Thus, the program was implemented and executed successfully, and the required ou
  4   2  
  54321
  ```
-# Date : 
+# Date : 20/11/2025
 # Aim:
  To build a C program that prints the required numeric pattern for a given value of n using nested loops.
 # Algorithm:
@@ -179,7 +275,49 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 8:   
   Stop
 # Program:
+```
+#include <stdio.h>
+
+int main()
+{
+    int i, j, n, k;
+
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    i = 1;
+    while (i <= n)
+    {
+        /* First half */
+        for (j = i; j <= n; j++)
+        {
+            if (i == 1 || j == i)
+                printf("%d", j);
+            else
+                printf(" ");
+        }
+
+        /* Second half */
+        k = j - 2;
+        for (j = 1; j <= i - 1; j++)
+        {
+            if (i == n || j == i - 1)
+                printf("%d", k);
+            else
+                printf(" ");
+            k--;
+        }
+
+        printf("\n");
+        i++;
+    }
+
+    return 0;
+}
+```
 # Output:
+<img width="474" height="340" alt="image" src="https://github.com/user-attachments/assets/8e551971-194e-431c-a734-e628e985783b" />
+
 # Result: 
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
@@ -231,7 +369,42 @@ Thus, the program was implemented and executed successfully, and the required ou
 ### Step 7:
   Decrease i by 1 and go back to Step 6.
 ### Step 8:
-  Stop
+  Stop.
+#Program:
+```
+#include <stdio.h>
+
+int main()
+{
+    int i, j;
+
+    /* First line */
+    printf("0\n");
+
+    /* Remaining pattern */
+    for (i = 7; i >= 1; i--)
+    {
+        for (j = i; j <= 7; j++)
+        {
+            printf("%d ", j);
+        }
+
+        printf("0 ");
+
+        for (j = 7; j >= i; j--)
+        {
+            printf("%d ", j);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+```
+#Output:
+<img width="407" height="373" alt="image" src="https://github.com/user-attachments/assets/b17d5dc4-d41a-4a05-9d89-d850232db4db" />
+
 # Result:
   Thus, the program was implemented and executed successfully, and the required output was obtained.
 
